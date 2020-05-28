@@ -40,6 +40,8 @@ if [ -n "${DKIM_KEY}" ]; then
   postfix_conf 'smtpd_milters' 'inet:127.0.0.1:8891'
   postfix_conf 'non_smtpd_milters' '$smtpd_milters'
   postfix_conf 'milter_default_action' 'accept'
+else
+  opendkim-genkey -D /var/db/dkim/ -d example.com
 fi
 
 newaliases
