@@ -15,10 +15,10 @@ if [ -n "${TZ}" ]; then
   echo "TZ: ${TZ}"
 fi
 
-postfix_conf 'myhostname' ${MYHOSTNAME}
-postfix_conf 'mydomain' ${MYDOMAIN}
-postfix_conf 'inet_interfaces' ${INET_INTERFACE}
-postfix_conf 'mynetworks' ${MYNETWORKS}
+postfix_conf 'myhostname' "${MYHOSTNAME}"
+postfix_conf 'mydomain' "${MYDOMAIN}"
+postfix_conf 'inet_interfaces' "${INET_INTERFACE}"
+postfix_conf 'mynetworks' "${MYNETWORKS}"
 
 if [ -n "${SASL_USER}" ]; then
   postfix_conf 'smtpd_sasl_auth_enable' 'yes'
