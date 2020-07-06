@@ -20,6 +20,10 @@ postfix_conf 'mydomain' "${MYDOMAIN}"
 postfix_conf 'inet_interfaces' "${INET_INTERFACE}"
 postfix_conf 'mynetworks' "${MYNETWORKS}"
 
+if [ -n "${RELAYHOST}" ]; then
+  postfix_conf 'relayhost' "${RELAYHOST}"
+fi
+
 if [ -n "${SASL_USER}" ]; then
   postfix_conf 'smtpd_sasl_auth_enable' 'yes'
   postfix_conf 'broken_sasl_auth_clients' 'yes'
