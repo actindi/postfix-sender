@@ -9,6 +9,8 @@ function postfix_conf() {
   postconf -e "${key} = ${value}"
 }
 
+postfix_conf 'allow_min_user' 'yes'
+
 if [ -n "${TZ}" ]; then
   cp -f /usr/share/zoneinfo/${TZ} /etc/localtime
   echo ${TZ} > /etc/timezone
