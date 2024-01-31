@@ -50,6 +50,15 @@ else
   opendkim-genkey -D /var/db/dkim/ -d example.com
 fi
 
+postfix_conf 'smtp_use_tls' 'yes'
+postfix_conf 'smtpd_use_tls' 'yes'
+postfix_conf 'smtp_tls_security_level' 'may'
+postfix_conf 'smtpd_tls_security_level' 'may'
+postfix_conf 'smtp_tls_cert_file' '/etc/letsencrypt/fullchain.pem'
+postfix_conf 'smtp_tls_key_file' '/etc/letsencrypt/privkey.pem'
+postfix_conf 'smtpd_tls_cert_file' '/etc/letsencrypt/fullchain.pem'
+postfix_conf 'smtpd_tls_key_file' '/etc/letsencrypt/privkey.pem'
+
 newaliases
 
 exec "$@"
