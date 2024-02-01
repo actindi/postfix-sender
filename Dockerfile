@@ -1,4 +1,4 @@
-FROM alpine:3.11.6
+FROM --platform=linux/amd64 alpine:3.11.6
 
 USER root
 WORKDIR /tmp
