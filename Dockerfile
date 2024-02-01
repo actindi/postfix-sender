@@ -1,4 +1,4 @@
-FROM alpine:3.11.6
+FROM --platform=linux/amd64 alpine:3.11.6
 
 USER root
 WORKDIR /tmp
@@ -27,6 +27,9 @@ ADD supervisord.conf /etc/supervisord.conf
 ADD rsyslog.conf /etc/rsyslog.conf
 ADD smtp.conf /etc/sasl2/smtp.conf
 ADD opendkim.conf /etc/opendkim/opendkim.conf
+
+ADD letsencrypt/fullchain.pem /etc/letsencrypt/fullchain.pem
+ADD letsencrypt/privkey.pem /etc/letsencrypt/privkey.pem
 
 RUN mkdir -p /var/spool/rsyslog \
  && mkdir -p /var/db/dkim \
