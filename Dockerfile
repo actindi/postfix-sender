@@ -28,9 +28,6 @@ ADD rsyslog.conf /etc/rsyslog.conf
 ADD smtp.conf /etc/sasl2/smtp.conf
 ADD opendkim.conf /etc/opendkim/opendkim.conf
 
-ADD letsencrypt/fullchain.pem /etc/letsencrypt/fullchain.pem
-ADD letsencrypt/privkey.pem /etc/letsencrypt/privkey.pem
-
 RUN mkdir -p /var/spool/rsyslog \
  && mkdir -p /var/db/dkim \
  && mkdir -p /var/lib/opendkim
